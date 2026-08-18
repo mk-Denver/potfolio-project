@@ -20,19 +20,32 @@ const focusAreas = [
 
 const projects = [
   {
-    title: 'Payment-Driven Platform Concepts',
+    title: 'pontmore-escrow-service',
     description:
-      'Product concepts and technical planning around platforms that depend on clean payment confirmation, automated flows, and reliable digital delivery.',
+      'Escrow service implementation in Rust, part of the Pontmore payment protocol stack for trusted, programmatic settlement.',
+    language: 'Rust',
+    url: 'https://github.com/mk-Denver/pontmore-escrow-service',
   },
   {
-    title: 'BTC Integration Ideas',
+    title: 'pontmore-lightning-escrow',
     description:
-      'Concepts focused on combining Bitcoin rails, digital payments, and practical user-facing experiences for modern web products.',
+      'Lightning Network-based escrow flow in JavaScript, connecting Bitcoin payment rails to digital delivery.',
+    language: 'JavaScript',
+    url: 'https://github.com/mk-Denver/pontmore-lightning-escrow',
   },
   {
-    title: 'Automation & Bot Systems',
+    title: 'descriptor-POC',
     description:
-      'Experiments and ideas around WhatsApp automation, workflow tools, and software systems that help businesses reduce manual work.',
+      'Proof of concept exploring output descriptors, built in Rust as a foundation for wallet and key management tooling.',
+    language: 'Rust',
+    url: 'https://github.com/mk-Denver/descriptor-POC',
+  },
+  {
+    title: 'pontmore/protocol',
+    description:
+      'The shared Pontmore protocol specification and reference implementation underpinning the escrow and settlement products.',
+    language: 'Protocol',
+    url: 'https://github.com/pontmore/protocol',
   },
 ]
 
@@ -129,7 +142,15 @@ export default function App() {
             <div className="list">
               {projects.map((project) => (
                 <div className="listItem" key={project.title}>
-                  <h3>{project.title}</h3>
+                  <div className="listItemHead">
+                    <a href={project.url}
+                       target="_blank"
+                       rel="noreferrer"
+                       className="listItemTitle">{project.title}</a>
+                    {project.language && (
+                      <span className="lang">{project.language}</span>
+                    )}
+                  </div>
                   <p>{project.description}</p>
                 </div>
               ))}
@@ -188,7 +209,7 @@ export default function App() {
                  target="_blank"
                  rel="noreferrer">LinkedIn</a>
               <a className="btn btnSecondary" 
-                 href="https://github.com/Denver-1st"
+                 href="https://github.com/mk-Denver"
                  target="_blank"
                  rel="noreferrer">GitHub</a>
                  <a className="btn btnSecondary" 
